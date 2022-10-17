@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
+
 <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+    <button style="background-color:deepskyblue; color: white; height:50px; width: 200px;" onclick="buttonClicked()">Click here</button>
+
+    <script>
+        var obj = {
+            status: "Card link success! Set up takes up to 10 minutes. Rewards may be delayed if you make a transaction in that time. Ensure notifications are on to receive advice of instant rewards.",
+            card: {
+                id: 50872,
+                description: "Loyalty Linked Card",
+                cardMasked: "****-****-****-4242",
+                issuer: "visa",
+                isDefault: false,
+                expiry: "2025-02-01T00:00:00",
+                provider: "ANZ Bank",
+                providerId: 4,
+                isExpired: false,
+                lastFour: "4242"
+            },
+            code: "0"
+        };
+        var MobileApp = window.MobileApp || {};
+
+        function buttonClicked() {
+            console.log(obj);
+
+            if (window.webkit != undefined) {
+                window.webkit.messageHandlers.MobileApp.postMessage(
+                    obj
+                );
+            } else{
+                MyJavascriptInterface.showResponse(obj);
+            }
+        }
+
+    </script>
 </body>
+
 </html>
