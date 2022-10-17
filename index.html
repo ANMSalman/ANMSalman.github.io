@@ -35,11 +35,9 @@
             console.log(obj);
 
             if (window.webkit != undefined) {
-                window.webkit.messageHandlers.MobileApp.postMessage(
-                    obj
-                );
+                window.webkit.messageHandlers.MobileApp.postMessage(obj);
             } else{
-                MyJavascriptInterface.showResponse(JSON.stringify(obj));
+                CardLinkedServices.sendResponse(JSON.stringify(obj));
             }
         }
 
