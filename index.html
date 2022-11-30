@@ -34,10 +34,7 @@
 
         function buttonClicked() {
             if (onStatusChanged) {
-                onStatusChanged.postMessage(JSON.stringify({
-                    isSuccess: true,
-                    body: obj,
-                }));
+                onStatusChanged.postMessage("Hello world");
             }
         }
 
