@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
 </head>
 
 <body>
-    <button style="background-color:deepskyblue; color: white; height:50px; width: 200px;" onclick="buttonClicked()">Click here</button>
+    <button style="background-color:deepskyblue; color: white; height:50px; width: 200px;"
+        onclick="buttonClicked()">Click here</button>
 
     <script>
         var obj = {
@@ -32,12 +33,11 @@
         var MobileApp = window.MobileApp || {};
 
         function buttonClicked() {
-            console.log(obj);
-
-            if (window.webkit != undefined) {
-                window.webkit.messageHandlers.MobileApp.postMessage(obj);
-            } else{
-                CardLinkedServices.sendResponse(JSON.stringify(obj));
+            if (onStatusChanged) {
+                onStatusChanged.postMessage({
+                    isSuccess: true,
+                    body: obj,
+                });
             }
         }
 
