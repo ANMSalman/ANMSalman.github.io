@@ -34,10 +34,10 @@
 
         function buttonClicked() {
             if (onStatusChanged) {
-                onStatusChanged.postMessage({
+                onStatusChanged.postMessage(JSON.stringify({
                     isSuccess: true,
                     body: obj,
-                });
+                }));
             }
         }
 
